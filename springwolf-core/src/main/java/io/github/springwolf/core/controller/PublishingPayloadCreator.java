@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.core.controller;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.springwolf.asyncapi.v3.model.components.ComponentSchema;
 import io.github.springwolf.asyncapi.v3.model.schema.SchemaObject;
 import io.github.springwolf.asyncapi.v3.model.schema.SchemaType;
@@ -12,6 +10,8 @@ import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 import java.text.MessageFormat;
 import java.util.Map;

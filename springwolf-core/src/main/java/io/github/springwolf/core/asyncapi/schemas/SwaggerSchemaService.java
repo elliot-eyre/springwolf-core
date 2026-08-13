@@ -1,13 +1,23 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.core.asyncapi.schemas;
 
-import com.fasterxml.jackson.databind.JavaType;
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
 import io.github.springwolf.asyncapi.v3.model.ReferenceUtil;
 import io.github.springwolf.asyncapi.v3.model.components.ComponentSchema;
 import io.github.springwolf.asyncapi.v3.model.schema.SchemaObject;
 import io.github.springwolf.core.asyncapi.annotations.AsyncApiPayload;
 import io.github.springwolf.core.asyncapi.components.postprocessors.SchemasPostProcessor;
 import io.github.springwolf.core.configuration.properties.SpringwolfConfigProperties;
+import static io.github.springwolf.core.configuration.properties.SpringwolfConfigProperties.ConfigDocket.DEFAULT_CONTENT_TYPE;
 import io.swagger.v3.core.converter.AnnotatedType;
 import io.swagger.v3.core.converter.ModelConverters;
 import io.swagger.v3.core.converter.ResolvedSchema;
@@ -18,17 +28,7 @@ import io.swagger.v3.core.util.RefUtils;
 import io.swagger.v3.oas.models.media.Schema;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import static io.github.springwolf.core.configuration.properties.SpringwolfConfigProperties.ConfigDocket.DEFAULT_CONTENT_TYPE;
+import tools.jackson.databind.JavaType;
 
 @Slf4j
 @RequiredArgsConstructor

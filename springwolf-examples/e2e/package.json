@@ -8,7 +8,7 @@
     "test": "playwright test",
     "lint": "prettier --check \"(tests|util)/**/*.(js|ts|tsx|json|html|css)\"",
     "lint:fix": "prettier --list-different --write \"(tests|util)/**/*.(js|ts|tsx|json|html|css)\"",
-    "install:deps": "npx playwright install --with-deps chromium"
+    "install:deps": "NODE_TLS_REJECT_UNAUTHORIZED=0 npx playwright install chromium"
   },
   "keywords": [],
   "author": "",

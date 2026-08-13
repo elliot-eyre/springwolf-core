@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.examples.kafka;
 
-import com.fasterxml.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.json.JsonMapper;
 import io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto;
 import lombok.extern.slf4j.Slf4j;
 import org.awaitility.Awaitility;

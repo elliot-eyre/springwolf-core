@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.core.configuration;
 
+import java.util.List;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+
 import io.github.springwolf.core.SpringwolfInitApplicationListener;
 import io.github.springwolf.core.asyncapi.AsyncApiCustomizer;
 import io.github.springwolf.core.asyncapi.AsyncApiService;
@@ -47,13 +55,6 @@ import io.github.springwolf.core.configuration.docket.DefaultAsyncApiDocketServi
 import io.github.springwolf.core.configuration.properties.SpringwolfConfigProperties;
 import io.github.springwolf.core.standalone.StandaloneConfiguration;
 import io.swagger.v3.core.converter.ModelConverter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
-
-import java.util.List;
 
 @Configuration(proxyBeanMethods = false)
 @StandaloneConfiguration

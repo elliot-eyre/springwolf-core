@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.core.asyncapi.schemas;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.springwolf.core.configuration.properties.SpringwolfConfigProperties;
 import io.swagger.v3.core.converter.ModelConverter;
 import io.swagger.v3.core.converter.ModelConverters;
@@ -10,6 +9,8 @@ import io.swagger.v3.core.jackson.TypeNameResolver;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.core.util.Json31;
 import lombok.Getter;
+import lombok.Setter;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class ModelConvertersProvider {
     private final TypeNameResolver typeNameResolver;
 
     @Getter
-    private final ObjectMapper objectMapper;
+    @Setter
+    private ObjectMapper objectMapper;
 
     @Getter
     private final ModelConverters modelConverters;

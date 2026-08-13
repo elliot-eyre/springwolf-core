@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.examples.amqp;
 
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.JsonNode;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.node.ObjectNode;
-
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.JsonNode;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class JsonKeyRemover {
     private static final ObjectMapper mapper = new ObjectMapper();

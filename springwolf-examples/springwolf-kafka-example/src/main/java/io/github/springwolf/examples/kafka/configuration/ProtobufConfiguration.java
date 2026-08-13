@@ -1,26 +1,40 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.examples.kafka.configuration;
 
-import com.fasterxml.jackson.databind.Module;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hubspot.jackson.datatype.protobuf.ProtobufJacksonConfig;
-import com.hubspot.jackson.datatype.protobuf.ProtobufModule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+import com.hubspot.jackson3.datatype.protobuf.ProtobufJacksonConfig;
+import com.hubspot.jackson3.datatype.protobuf.ProtobufModule;
+
 import io.github.springwolf.core.asyncapi.schemas.ModelConvertersProvider;
 import io.github.springwolf.core.standalone.StandaloneConfiguration;
-import org.springframework.context.annotation.Configuration;
+import tools.jackson.databind.JacksonModule;
+import tools.jackson.databind.ObjectMapper;
 
 @Configuration(proxyBeanMethods = false)
 @StandaloneConfiguration
 public class ProtobufConfiguration {
 
-    public ProtobufConfiguration(ModelConvertersProvider modelConvertersProvider) {
-        ObjectMapper objectMapper = modelConvertersProvider.getObjectMapper();
+    // Forced zero-parameter constructor implicitly handled by the compiler
 
-        Module protobufModule = new ProtobufModule(
+    @Autowired
+    public void configureProtobuf(ModelConvertersProvider modelConvertersProvider) {
+        ObjectMapper baseObjectMapper = modelConvertersProvider.getObjectMapper();
+
+        // 1. Instantiating your Jackson 3 HubSpot Protobuf modules
+        JacksonModule protobufModule = new ProtobufModule(
                 ProtobufJacksonConfig.builder().acceptLiteralFieldnames(true).build());
-        objectMapper.registerModule(protobufModule);
+                
+        JacksonModule protobufPropertiesModule = new ProtobufPropertiesModule();
 
-        Module protobufPropertiesModule = new ProtobufPropertiesModule();
-        objectMapper.registerModule(protobufPropertiesModule);
+        // 2. Rebuilding the immutable mapper to attach the modules in Jackson 3
+        ObjectMapper configuredObjectMapper = baseObjectMapper.rebuild()
+                .addModule(protobufModule)
+                .addModule(protobufPropertiesModule)
+                .build();
+
+        // 3. Critically re-assigning the new immutable instance back to the provider
+        modelConvertersProvider.setObjectMapper(configuredObjectMapper);
     }
 }

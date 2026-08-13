@@ -7,7 +7,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class ExampleFormatter {
-    private static final SimpleDateFormat ISO_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat ISO_DATE_FORMAT;
+
+    static {
+        ISO_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+        // Force the formatter to use UTC instead of the local system timezone
+        ISO_DATE_FORMAT.setTimeZone(java.util.TimeZone.getTimeZone("UTC"));
+    }
 
     public static Object processExampleObject(Object example) {
         if (example instanceof Date exampleDate) {
