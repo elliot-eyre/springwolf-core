@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.examples.amqp.configuration;
 
-import java.util.Map;
-
+import io.github.springwolf.examples.amqp.AmqpConstants;
+import io.github.springwolf.examples.amqp.dtos.AnotherPayloadDto;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Exchange;
@@ -13,8 +13,7 @@ import org.springframework.amqp.support.converter.JacksonJsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import io.github.springwolf.examples.amqp.AmqpConstants;
-import io.github.springwolf.examples.amqp.dtos.AnotherPayloadDto;
+import java.util.Map;
 
 @EnableRabbit
 @Configuration(proxyBeanMethods = false)

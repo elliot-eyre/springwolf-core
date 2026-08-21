@@ -738,11 +738,48 @@
         "schema": {
           "type": "object",
           "example": {
+            "allFields": { },
+            "defaultInstanceForType": { },
+            "initializationErrorString": "string",
+            "initialized": true,
+            "memoizedSerializedSize": 0,
+            "serializedSize": 0,
             "someEnum": "FOO1",
+            "someEnumValue": 0,
             "someLong": 0,
-            "someString": "string"
+            "someString": "string",
+            "someStringBytes": "YmFzZTY0LWV4YW1wbGU="
           },
           "properties": {
+            "allFields": {
+              "type": "object",
+              "additionalProperties": { },
+              "title": "Map"
+            },
+            "defaultInstanceForType": {
+              "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message"
+            },
+            "descriptorForType": {
+              "title": "Descriptor"
+            },
+            "initializationErrorString": {
+              "type": "string"
+            },
+            "initialized": {
+              "type": "boolean"
+            },
+            "memoizedSerializedSize": {
+              "type": "integer",
+              "format": "int32",
+              "writeOnly": true
+            },
+            "parserForType": {
+              "title": "Parser"
+            },
+            "serializedSize": {
+              "type": "integer",
+              "format": "int32"
+            },
             "someEnum": {
               "type": "string",
               "enum": [
@@ -753,12 +790,24 @@
               ],
               "title": "ExampleEnum"
             },
+            "someEnumValue": {
+              "type": "integer",
+              "format": "int32"
+            },
             "someLong": {
               "type": "integer",
               "format": "int64"
             },
             "someString": {
               "type": "string"
+            },
+            "someStringBytes": {
+              "type": "string",
+              "format": "byte",
+              "title": "ByteString"
+            },
+            "unknownFields": {
+              "title": "UnknownFieldSet"
             }
           },
           "title": "Message"
@@ -1035,6 +1084,12 @@
             "vehicleType": "string"
           },
           "oneOf": [
+            {
+              "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+            },
+            {
+              "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+            },
             {
               "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
             },

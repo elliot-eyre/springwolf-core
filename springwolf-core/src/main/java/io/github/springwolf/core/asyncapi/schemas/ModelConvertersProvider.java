@@ -58,6 +58,7 @@ public class ModelConvertersProvider {
 
         replaceModelResolver(modelConverters, modelResolver);
 
+        modelConverters.addConverter(new ProtobufModelConverter());
         return modelConverters;
     }
 

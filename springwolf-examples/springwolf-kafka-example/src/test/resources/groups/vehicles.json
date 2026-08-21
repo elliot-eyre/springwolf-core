@@ -148,6 +148,12 @@
           },
           {
             "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
           }
         ],
         "x-json-schema": {
@@ -185,7 +191,9 @@
               "description": "Gasoline vehicle implementation of VehicleBase",
               "title": "VehicleGasolinePayloadDto",
               "type": "object"
-            }
+            },
+            { },
+            { }
           ],
           "properties": {
             "enginePower": {
@@ -264,7 +272,9 @@
                   "description": "Gasoline vehicle implementation of VehicleBase",
                   "title": "VehicleGasolinePayloadDto",
                   "type": "object"
-                }
+                },
+                { },
+                { }
               ],
               "properties": {
                 "enginePower": {
@@ -351,6 +361,8 @@
                   "title": "VehicleElectricPayloadDto",
                   "type": "object"
                 },
+                { },
+                { },
                 { }
               ],
               "properties": {

@@ -1,13 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.examples.kafka.configuration;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
@@ -15,7 +8,8 @@ import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Message;
 import com.google.protobuf.Timestamp;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.jackson.core.Version;
 import tools.jackson.core.util.VersionUtil;
 import tools.jackson.databind.JacksonModule;
@@ -27,6 +21,10 @@ import tools.jackson.databind.introspect.AnnotatedField;
 import tools.jackson.databind.introspect.NopAnnotationIntrospector;
 import tools.jackson.databind.introspect.VisibilityChecker;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Jackson 3 module that works together with Protobuf configuration.
  * When added to the springdoc/springwolf ObjectMapper, it allows protobuf messages to show up in swagger ui.
@@ -35,34 +33,25 @@ import tools.jackson.databind.introspect.VisibilityChecker;
  */
 public class ProtobufPropertiesModule extends JacksonModule {
 
-    private static final Logger log =
-            LoggerFactory.getLogger(ProtobufPropertiesModule.class);
+    private static final Logger log = LoggerFactory.getLogger(ProtobufPropertiesModule.class);
 
-    private final Map<Class<?>, Map<String, FieldDescriptor>> cache =
-            new ConcurrentHashMap<>();
+    private final Map<Class<?>, Map<String, FieldDescriptor>> cache = new ConcurrentHashMap<>();
 
-    private final NopAnnotationIntrospector annotationIntrospector =
-            new NopAnnotationIntrospector() {
+    private final NopAnnotationIntrospector annotationIntrospector = new NopAnnotationIntrospector() {
 
         @Override
         public VisibilityChecker findAutoDetectVisibility(
-                MapperConfig<?> cfg,
-                AnnotatedClass ac,
-                VisibilityChecker checker) {
+                MapperConfig<?> cfg, AnnotatedClass ac, VisibilityChecker checker) {
 
             if (Message.class.isAssignableFrom(ac.getRawType())) {
-                return checker
-                        .withGetterVisibility(Visibility.PUBLIC_ONLY)
-                        .withFieldVisibility(Visibility.ANY);
+                return checker.withGetterVisibility(Visibility.PUBLIC_ONLY).withFieldVisibility(Visibility.ANY);
             }
 
             return super.findAutoDetectVisibility(cfg, ac, checker);
         }
 
         @Override
-        public Object findNamingStrategy(
-                MapperConfig<?> cfg,
-                AnnotatedClass ac) {
+        public Object findNamingStrategy(MapperConfig<?> cfg, AnnotatedClass ac) {
 
             if (!Message.class.isAssignableFrom(ac.getRawType())) {
                 return super.findNamingStrategy(cfg, ac);
@@ -72,11 +61,8 @@ public class ProtobufPropertiesModule extends JacksonModule {
 
                 @Override
                 public String translate(String propertyName) {
-                    if (propertyName != null
-                            && propertyName.endsWith("_")) {
-                        return propertyName.substring(
-                                0,
-                                propertyName.length() - 1);
+                    if (propertyName != null && propertyName.endsWith("_")) {
+                        return propertyName.substring(0, propertyName.length() - 1);
                     }
 
                     return propertyName;
@@ -85,17 +71,13 @@ public class ProtobufPropertiesModule extends JacksonModule {
         }
 
         @Override
-        public JsonFormat.Value findFormat(
-                MapperConfig<?> cfg,
-                Annotated annotated) {
+        public JsonFormat.Value findFormat(MapperConfig<?> cfg, Annotated annotated) {
 
-            JsonFormat.Value format =
-                    super.findFormat(cfg, annotated);
+            JsonFormat.Value format = super.findFormat(cfg, annotated);
 
             if (annotated instanceof AnnotatedField field) {
 
-                Class<?> declaringClass =
-                        field.getDeclaringClass();
+                Class<?> declaringClass = field.getDeclaringClass();
 
                 if (Timestamp.class.equals(declaringClass)) {
                     return JsonFormat.Value.forShape(Shape.STRING);
@@ -104,20 +86,13 @@ public class ProtobufPropertiesModule extends JacksonModule {
                 if (Message.class.isAssignableFrom(declaringClass)) {
 
                     Map<String, FieldDescriptor> descriptors =
-                            cache.computeIfAbsent(
-                                    declaringClass,
-                                    ProtobufPropertiesModule.this
-                                            ::getDescriptorForType);
+                            cache.computeIfAbsent(declaringClass, ProtobufPropertiesModule.this::getDescriptorForType);
 
-                    FieldDescriptor descriptor =
-                            descriptors.get(field.getName());
+                    FieldDescriptor descriptor = descriptors.get(field.getName());
 
-                    if (descriptor != null
-                            && descriptor.getType()
-                                    == FieldDescriptor.Type.STRING) {
+                    if (descriptor != null && descriptor.getType() == FieldDescriptor.Type.STRING) {
 
-                        return JsonFormat.Value.forShape(
-                                Shape.STRING);
+                        return JsonFormat.Value.forShape(Shape.STRING);
                     }
                 }
             }
@@ -141,17 +116,12 @@ public class ProtobufPropertiesModule extends JacksonModule {
         context.insertAnnotationIntrospector(annotationIntrospector);
     }
 
-    private Map<String, FieldDescriptor> getDescriptorForType(
-            Class<?> type) {
+    private Map<String, FieldDescriptor> getDescriptorForType(Class<?> type) {
 
         try {
-            Descriptor descriptor =
-                    (Descriptor) type
-                            .getMethod("getDescriptor")
-                            .invoke(null);
+            Descriptor descriptor = (Descriptor) type.getMethod("getDescriptor").invoke(null);
 
-            Map<String, FieldDescriptor> result =
-                    new HashMap<>();
+            Map<String, FieldDescriptor> result = new HashMap<>();
 
             descriptor.getFields().forEach(field -> {
                 result.put(field.getName(), field);
@@ -161,9 +131,7 @@ public class ProtobufPropertiesModule extends JacksonModule {
             return result;
 
         } catch (Exception e) {
-            log.error(
-                    "Error getting protobuf descriptor for swagger.",
-                    e);
+            log.error("Error getting protobuf descriptor for swagger.", e);
 
             return new HashMap<>();
         }

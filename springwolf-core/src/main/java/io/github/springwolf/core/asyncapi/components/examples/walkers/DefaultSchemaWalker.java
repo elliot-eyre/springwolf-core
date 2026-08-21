@@ -71,7 +71,10 @@ public class DefaultSchemaWalker<T, R> implements SchemaWalker<R> {
 
     private Optional<T> buildExample(
             Optional<String> name, Schema schema, Map<String, Schema> definitions, Set<Schema> visited) {
-        log.trace("Building example for schema {}", schema);
+
+        if (visited.contains(schema)) {
+            return exampleValueGenerator.createEmptyObjectExample();
+        }
 
         Optional<T> exampleValue = getExampleFromSchemaAnnotation(name, schema);
         if (exampleValue.isPresent()) {
@@ -81,6 +84,7 @@ public class DefaultSchemaWalker<T, R> implements SchemaWalker<R> {
         if (visited.contains(schema)) {
             return exampleValueGenerator.createEmptyObjectExample();
         }
+
         visited.add(schema);
         Optional<T> example = buildExampleFromUnvisitedSchema(name, schema, definitions, visited);
         visited.remove(schema);
@@ -155,6 +159,7 @@ public class DefaultSchemaWalker<T, R> implements SchemaWalker<R> {
      */
     private Optional<T> buildExampleFromUnvisitedSchema(
             Optional<String> name, Schema schema, Map<String, Schema> definitions, Set<Schema> visited) {
+
         Optional<Schema<?>> resolvedSchema = resolveSchemaFromRef(schema, definitions);
         if (resolvedSchema.isPresent()) {
             return buildExample(name, resolvedSchema.get(), definitions, visited);

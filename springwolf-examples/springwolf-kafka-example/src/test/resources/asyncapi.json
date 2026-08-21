@@ -571,8 +571,8 @@
           "type": "object"
         }
       },
-      "SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105": {
-        "title": "SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105",
+      "SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695": {
+        "title": "SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695",
         "type": "object",
         "properties": {
           "__TypeId__": {
@@ -598,18 +598,10 @@
             "examples": [
               "\"string\""
             ]
-          },
-          "kafka_recordMetadata": {
-            "title": "ConsumerRecordMetadata",
-            "type": "object",
-            "examples": [
-              { }
-            ]
           }
         },
         "examples": [
           {
-            "ConsumerRecordMetadata": { },
             "__TypeId__": "io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto",
             "kafka_offset": 0,
             "kafka_receivedMessageKey": "string"
@@ -632,13 +624,9 @@
             },
             "kafka_receivedMessageKey": {
               "type": "string"
-            },
-            "kafka_recordMetadata": {
-              "title": "ConsumerRecordMetadata",
-              "type": "object"
             }
           },
-          "title": "SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105",
+          "title": "SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695",
           "type": "object"
         }
       },
@@ -1082,6 +1070,38 @@
         "title": "Message",
         "type": "object",
         "properties": {
+          "allFields": {
+            "title": "Map",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "defaultInstanceForType": {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message"
+          },
+          "descriptorForType": {
+            "title": "Descriptor",
+            "type": "object"
+          },
+          "initializationErrorString": {
+            "type": "string"
+          },
+          "initialized": {
+            "type": "boolean"
+          },
+          "memoizedSerializedSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parserForType": {
+            "title": "Parser",
+            "type": "object"
+          },
+          "serializedSize": {
+            "type": "integer",
+            "format": "int32"
+          },
           "someEnum": {
             "title": "ExampleEnum",
             "type": "string",
@@ -1092,40 +1112,117 @@
               "UNRECOGNIZED"
             ]
           },
+          "someEnumValue": {
+            "type": "integer",
+            "format": "int32"
+          },
           "someLong": {
             "type": "integer",
             "format": "int64"
           },
           "someString": {
             "type": "string"
+          },
+          "someStringBytes": {
+            "title": "ByteString",
+            "type": "string",
+            "format": "byte"
+          },
+          "unknownFields": {
+            "title": "UnknownFieldSet",
+            "type": "object"
           }
         },
         "examples": [
           {
+            "allFields": {
+              "key": { }
+            },
+            "defaultInstanceForType": { },
+            "descriptorForType": { },
+            "initializationErrorString": "string",
+            "initialized": true,
+            "memoizedSerializedSize": 0,
+            "parserForType": { },
+            "serializedSize": 0,
             "someEnum": "FOO1",
+            "someEnumValue": 0,
             "someLong": 0,
-            "someString": "string"
+            "someString": "string",
+            "someStringBytes": "YmFzZTY0LWV4YW1wbGU=",
+            "unknownFields": { }
           }
         ],
         "x-json-schema": {
           "$schema": "https://json-schema.org/draft-07/schema#",
           "properties": {
-            "someEnum": {
-              "enum": [
-                "FOO1",
-                "FOO2",
-                "FOO3",
-                "UNRECOGNIZED"
-              ],
-              "title": "ExampleEnum",
+            "allFields": {
+              "title": "Map",
+              "type": "object"
+            },
+            "defaultInstanceForType": {
+              "properties": {
+                "allFields": { },
+                "defaultInstanceForType": { },
+                "descriptorForType": { },
+                "initializationErrorString": { },
+                "initialized": {
+                  "type": "boolean"
+                },
+                "memoizedSerializedSize": { },
+                "parserForType": { },
+                "serializedSize": { },
+                "someEnum": {
+                  "enum": [
+                    "FOO1",
+                    "FOO2",
+                    "FOO3",
+                    "UNRECOGNIZED"
+                  ],
+                  "title": "ExampleEnum",
+                  "type": "string"
+                },
+                "someEnumValue": { },
+                "someLong": {
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "someString": { },
+                "someStringBytes": { },
+                "unknownFields": { }
+              },
+              "title": "Message",
+              "type": "object"
+            },
+            "descriptorForType": {
+              "title": "Descriptor",
+              "type": "object"
+            },
+            "initializationErrorString": {
               "type": "string"
             },
-            "someLong": {
-              "format": "int64",
+            "initialized": { },
+            "memoizedSerializedSize": { },
+            "parserForType": {
+              "title": "Parser",
+              "type": "object"
+            },
+            "serializedSize": {
+              "format": "int32",
               "type": "integer"
             },
-            "someString": {
+            "someEnum": { },
+            "someEnumValue": { },
+            "someLong": { },
+            "someString": { },
+            "someStringBytes": {
+              "format": "byte",
+              "title": "ByteString",
               "type": "string"
+            },
+            "unknownFields": {
+              "title": "UnknownFieldSet",
+              "type": "object"
             }
           },
           "title": "Message",
@@ -1656,6 +1753,12 @@
           },
           {
             "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
           }
         ],
         "x-json-schema": {
@@ -1693,7 +1796,9 @@
               "description": "Gasoline vehicle implementation of VehicleBase",
               "title": "VehicleGasolinePayloadDto",
               "type": "object"
-            }
+            },
+            { },
+            { }
           ],
           "properties": {
             "enginePower": {
@@ -1772,7 +1877,9 @@
                   "description": "Gasoline vehicle implementation of VehicleBase",
                   "title": "VehicleGasolinePayloadDto",
                   "type": "object"
-                }
+                },
+                { },
+                { }
               ],
               "properties": {
                 "enginePower": {
@@ -1859,6 +1966,8 @@
                   "title": "VehicleElectricPayloadDto",
                   "type": "object"
                 },
+                { },
+                { },
                 { }
               ],
               "properties": {
@@ -2048,7 +2157,7 @@
       },
       "io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto": {
         "headers": {
-          "$ref": "#/components/schemas/SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105"
+          "$ref": "#/components/schemas/SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695"
         },
         "payload": {
           "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.1.0",

@@ -1,17 +1,12 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.core.asyncapi.components.examples.walkers.json;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
-import org.springframework.http.MediaType;
-
 import io.github.springwolf.core.asyncapi.components.examples.walkers.ExampleValueGenerator;
 import io.github.springwolf.core.asyncapi.components.examples.walkers.PropertyExample;
 import io.swagger.v3.oas.models.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.node.ArrayNode;
@@ -21,6 +16,10 @@ import tools.jackson.databind.node.IntNode;
 import tools.jackson.databind.node.JsonNodeFactory;
 import tools.jackson.databind.node.ObjectNode;
 import tools.jackson.dataformat.yaml.YAMLMapper;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Slf4j
 public class ExampleJsonValueGenerator implements ExampleValueGenerator<JsonNode, JsonNode> {

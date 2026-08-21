@@ -66,8 +66,8 @@ channels:
         replicas: 1
         topicConfiguration:
           cleanup.policy:
-            - compact
-            - delete
+          - compact
+          - delete
           retention.ms: 86400000
           retention.bytes: -1
           delete.retention.ms: 86400000
@@ -113,7 +113,7 @@ channels:
       io.github.springwolf.examples.kafka.dtos.NestedPayloadDto:
         $ref: "#/components/messages/io.github.springwolf.examples.kafka.dtos.NestedPayloadDto"
     servers:
-      - $ref: "#/servers/kafka-server"
+    - $ref: "#/servers/kafka-server"
     bindings: {}
   vehicle-topic:
     address: vehicle-topic
@@ -147,7 +147,7 @@ components:
       properties: {}
       description: "There can be headers, but they are not explicitly documented."
       examples:
-        - {}
+      - {}
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: "There can be headers, but they are not explicitly documented."
@@ -159,7 +159,7 @@ components:
       properties: {}
       description: No headers are present.
       examples:
-        - {}
+      - {}
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: No headers are present.
@@ -171,7 +171,7 @@ components:
       properties: {}
       description: No payload specified
       examples:
-        - {}
+      - {}
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: No payload specified
@@ -186,76 +186,76 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
         ce_id:
           title: ce_id
           type: string
           description: CloudEvent Id Header
           enum:
-            - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
+          - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
           examples:
-            - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
+          - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
         ce_source:
           title: ce_source
           type: string
           description: CloudEvent Source Header
           enum:
-            - http://localhost
+          - http://localhost
           examples:
-            - http://localhost
+          - http://localhost
         ce_specversion:
           title: ce_specversion
           type: string
           description: CloudEvent Spec Version Header
           enum:
-            - "1.0"
+          - "1.0"
           examples:
-            - "1.0"
+          - "1.0"
         ce_subject:
           title: ce_subject
           type: string
           description: CloudEvent Subject Header
           enum:
-            - Springwolf example project - Kafka
+          - Springwolf example project - Kafka
           examples:
-            - Springwolf example project - Kafka
+          - Springwolf example project - Kafka
         ce_time:
           title: ce_time
           type: string
           description: CloudEvent Time Header
           format: date-time
           enum:
-            - 2023-10-28T20:01:23+00:00
+          - 2023-10-28T20:01:23+00:00
           examples:
-            - 2023-10-28T20:01:23+00:00
+          - 2023-10-28T20:01:23+00:00
         ce_type:
           title: ce_type
           type: string
           description: CloudEvent Payload Type Header
           enum:
-            - NestedPayloadDto.v1
+          - NestedPayloadDto.v1
           examples:
-            - NestedPayloadDto.v1
+          - NestedPayloadDto.v1
         content-type:
           title: content-type
           type: string
           description: CloudEvent Content-Type Header
           enum:
-            - application/json
+          - application/json
           examples:
-            - application/json
+          - application/json
       description: Spring __TypeId__ and CloudEvent Headers
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
-          ce_id: 2c60089e-6f39-459d-8ced-2d6df7e4c03a
-          ce_source: http://localhost
-          ce_specversion: "1.0"
-          ce_subject: Springwolf example project - Kafka
-          ce_time: 2023-10-28T20:01:23+00:00
-          ce_type: NestedPayloadDto.v1
-          content-type: application/json
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
+        ce_id: 2c60089e-6f39-459d-8ced-2d6df7e4c03a
+        ce_source: http://localhost
+        ce_specversion: "1.0"
+        ce_subject: Springwolf example project - Kafka
+        ce_time: 2023-10-28T20:01:23+00:00
+        ce_type: NestedPayloadDto.v1
+        content-type: application/json
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: Spring __TypeId__ and CloudEvent Headers
@@ -263,50 +263,50 @@ components:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
+            - io.github.springwolf.examples.kafka.dtos.NestedPayloadDto
             title: __TypeId__
             type: string
           ce_id:
             description: CloudEvent Id Header
             enum:
-              - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
+            - 2c60089e-6f39-459d-8ced-2d6df7e4c03a
             title: ce_id
             type: string
           ce_source:
             description: CloudEvent Source Header
             enum:
-              - http://localhost
+            - http://localhost
             title: ce_source
             type: string
           ce_specversion:
             description: CloudEvent Spec Version Header
             enum:
-              - "1.0"
+            - "1.0"
             title: ce_specversion
             type: string
           ce_subject:
             description: CloudEvent Subject Header
             enum:
-              - Springwolf example project - Kafka
+            - Springwolf example project - Kafka
             title: ce_subject
             type: string
           ce_time:
             description: CloudEvent Time Header
             enum:
-              - 2023-10-28T20:01:23+00:00
+            - 2023-10-28T20:01:23+00:00
             format: date-time
             title: ce_time
             type: string
           ce_type:
             description: CloudEvent Payload Type Header
             enum:
-              - NestedPayloadDto.v1
+            - NestedPayloadDto.v1
             title: ce_type
             type: string
           content-type:
             description: CloudEvent Content-Type Header
             enum:
-              - application/json
+            - application/json
             title: content-type
             type: string
         title: SpringDefaultHeaderAndCloudEvent
@@ -320,18 +320,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
+          - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
           examples:
-            - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
+          - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
+      - __TypeId__: io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
+            - io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-AnotherPayloadAvroDto
@@ -345,18 +345,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
+            - io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-AnotherPayloadDto
@@ -375,14 +375,14 @@ components:
           description: Event identifier
           format: uuid
           enum:
-            - 00000000-0000-0000-0000-000000000000
-            - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
+          - 00000000-0000-0000-0000-000000000000
+          - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
           examples:
-            - 00000000-0000-0000-0000-000000000000
-            - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
+          - 00000000-0000-0000-0000-000000000000
+          - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
       examples:
-        - __TypeId__: string
-          my_uuid_field: 00000000-0000-0000-0000-000000000000
+      - __TypeId__: string
+        my_uuid_field: 00000000-0000-0000-0000-000000000000
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
@@ -393,15 +393,15 @@ components:
           my_uuid_field:
             description: Event identifier
             enum:
-              - 00000000-0000-0000-0000-000000000000
-              - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
+            - 00000000-0000-0000-0000-000000000000
+            - FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF
             format: uuid
             title: my_uuid_field
             type: string
         title: SpringKafkaDefaultHeaders-AnotherTopic
         type: object
-    SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105:
-      title: SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105
+    SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695:
+      title: SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695
       type: object
       properties:
         __TypeId__:
@@ -409,35 +409,29 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
+          - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
+          - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
         kafka_offset:
           type: integer
           format: int32
           examples:
-            - 0
+          - 0
         kafka_receivedMessageKey:
           type: string
           examples:
-            - '"string"'
-        kafka_recordMetadata:
-          title: ConsumerRecordMetadata
-          type: object
-          examples:
-            - {}
+          - '"string"'
       examples:
-        - ConsumerRecordMetadata: {}
-          __TypeId__: io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
-          kafka_offset: 0
-          kafka_receivedMessageKey: string
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
+        kafka_offset: 0
+        kafka_receivedMessageKey: string
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
+            - io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto
             title: __TypeId__
             type: string
           kafka_offset:
@@ -445,10 +439,7 @@ components:
             type: integer
           kafka_receivedMessageKey:
             type: string
-          kafka_recordMetadata:
-            title: ConsumerRecordMetadata
-            type: object
-        title: SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105
+        title: SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695
         type: object
     SpringKafkaDefaultHeaders-Message:
       title: SpringKafkaDefaultHeaders-Message
@@ -459,18 +450,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
+          - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
           examples:
-            - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
+          - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
+      - __TypeId__: io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
+            - io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-Message
@@ -484,18 +475,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - javax.money.MonetaryAmount
+          - javax.money.MonetaryAmount
           examples:
-            - javax.money.MonetaryAmount
+          - javax.money.MonetaryAmount
       examples:
-        - __TypeId__: javax.money.MonetaryAmount
+      - __TypeId__: javax.money.MonetaryAmount
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - javax.money.MonetaryAmount
+            - javax.money.MonetaryAmount
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-MonetaryAmount
@@ -509,18 +500,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - PayloadNotUsed
+          - PayloadNotUsed
           examples:
-            - PayloadNotUsed
+          - PayloadNotUsed
       examples:
-        - __TypeId__: PayloadNotUsed
+      - __TypeId__: PayloadNotUsed
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - PayloadNotUsed
+            - PayloadNotUsed
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-PayloadNotUsed
@@ -534,18 +525,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
+          - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
+          - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
+            - io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-RequiredAndNullablePayloadDto
@@ -559,18 +550,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
+          - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
           examples:
-            - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
+          - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
+            - io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-VehicleBase
@@ -584,18 +575,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
+            - io.github.springwolf.examples.kafka.dtos.XmlPayloadDto
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-XmlPayloadDto
@@ -609,18 +600,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
           examples:
-            - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
+          - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
       examples:
-        - __TypeId__: io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
+      - __TypeId__: io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
+            - io.github.springwolf.examples.kafka.dtos.YamlPayloadDto
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-YamlPayloadDto
@@ -634,18 +625,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - java.lang.Integer
+          - java.lang.Integer
           examples:
-            - java.lang.Integer
+          - java.lang.Integer
       examples:
-        - __TypeId__: java.lang.Integer
+      - __TypeId__: java.lang.Integer
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - java.lang.Integer
+            - java.lang.Integer
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-integer
@@ -659,18 +650,18 @@ components:
           type: string
           description: Spring Type Id Header
           enum:
-            - java.lang.String
+          - java.lang.String
           examples:
-            - java.lang.String
+          - java.lang.String
       examples:
-        - __TypeId__: java.lang.String
+      - __TypeId__: java.lang.String
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           __TypeId__:
             description: Spring Type Id Header
             enum:
-              - java.lang.String
+            - java.lang.String
             title: __TypeId__
             type: string
         title: SpringKafkaDefaultHeaders-string
@@ -681,7 +672,7 @@ components:
         within envelope class
       maxLength: 100
       examples:
-        - '"string"'
+      - '"string"'
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: Payload description using @Schema annotation and @AsyncApiPayload
@@ -698,14 +689,14 @@ components:
           title: ExampleEnum
           type: string
           enum:
-            - FOO1
-            - FOO2
-            - FOO3
+          - FOO1
+          - FOO2
+          - FOO3
       examples:
-        - examplePayloadAvroDto:
-            someLong: 0
-            someString: string
-          someEnum: FOO1
+      - examplePayloadAvroDto:
+          someLong: 0
+          someString: string
+        someEnum: FOO1
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
@@ -720,9 +711,9 @@ components:
             type: object
           someEnum:
             enum:
-              - FOO1
-              - FOO2
-              - FOO3
+            - FOO1
+            - FOO2
+            - FOO3
             title: ExampleEnum
             type: string
         title: AnotherPayloadAvroDto
@@ -737,8 +728,8 @@ components:
         someString:
           type: string
       examples:
-        - someLong: 0
-          someString: string
+      - someLong: 0
+        someString: string
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
@@ -753,39 +744,126 @@ components:
       title: Message
       type: object
       properties:
+        allFields:
+          title: Map
+          type: object
+          additionalProperties:
+            type: object
+        defaultInstanceForType:
+          $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message"
+        descriptorForType:
+          title: Descriptor
+          type: object
+        initializationErrorString:
+          type: string
+        initialized:
+          type: boolean
+        memoizedSerializedSize:
+          type: integer
+          format: int32
+        parserForType:
+          title: Parser
+          type: object
+        serializedSize:
+          type: integer
+          format: int32
         someEnum:
           title: ExampleEnum
           type: string
           enum:
-            - FOO1
-            - FOO2
-            - FOO3
-            - UNRECOGNIZED
+          - FOO1
+          - FOO2
+          - FOO3
+          - UNRECOGNIZED
+        someEnumValue:
+          type: integer
+          format: int32
         someLong:
           type: integer
           format: int64
         someString:
           type: string
+        someStringBytes:
+          title: ByteString
+          type: string
+          format: byte
+        unknownFields:
+          title: UnknownFieldSet
+          type: object
       examples:
-        - someEnum: FOO1
-          someLong: 0
-          someString: string
+      - allFields:
+          key: {}
+        defaultInstanceForType: {}
+        descriptorForType: {}
+        initializationErrorString: string
+        initialized: true
+        memoizedSerializedSize: 0
+        parserForType: {}
+        serializedSize: 0
+        someEnum: FOO1
+        someEnumValue: 0
+        someLong: 0
+        someString: string
+        someStringBytes: YmFzZTY0LWV4YW1wbGU=
+        unknownFields: {}
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
-          someEnum:
-            enum:
-              - FOO1
-              - FOO2
-              - FOO3
-              - UNRECOGNIZED
-            title: ExampleEnum
+          allFields:
+            title: Map
+            type: object
+          defaultInstanceForType:
+            properties:
+              allFields: {}
+              defaultInstanceForType: {}
+              descriptorForType: {}
+              initializationErrorString: {}
+              initialized:
+                type: boolean
+              memoizedSerializedSize: {}
+              parserForType: {}
+              serializedSize: {}
+              someEnum:
+                enum:
+                - FOO1
+                - FOO2
+                - FOO3
+                - UNRECOGNIZED
+                title: ExampleEnum
+                type: string
+              someEnumValue: {}
+              someLong:
+                format: int64
+                type: integer
+              someString: {}
+              someStringBytes: {}
+              unknownFields: {}
+            title: Message
+            type: object
+          descriptorForType:
+            title: Descriptor
+            type: object
+          initializationErrorString:
             type: string
-          someLong:
-            format: int64
+          initialized: {}
+          memoizedSerializedSize: {}
+          parserForType:
+            title: Parser
+            type: object
+          serializedSize:
+            format: int32
             type: integer
-          someString:
+          someEnum: {}
+          someEnumValue: {}
+          someLong: {}
+          someString: {}
+          someStringBytes:
+            format: byte
+            title: ByteString
             type: string
+          unknownFields:
+            title: UnknownFieldSet
+            type: object
         title: Message
         type: object
     io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto:
@@ -799,16 +877,16 @@ components:
           description: Foo field
           maxLength: 100
           examples:
-            - bar
+          - bar
       description: Another payload model
       examples:
-        - example:
-            someEnum: FOO2
-            someLong: 5
-            someString: some string value
-          foo: bar
+      - example:
+          someEnum: FOO2
+          someLong: 5
+          someString: some string value
+        foo: bar
       required:
-        - example
+      - example
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: Another payload model
@@ -821,9 +899,9 @@ components:
               someEnum:
                 description: Some enum field
                 enum:
-                  - FOO1
-                  - FOO2
-                  - FOO3
+                - FOO1
+                - FOO2
+                - FOO3
                 title: ExampleEnum
                 type: string
               someLong:
@@ -847,8 +925,8 @@ components:
                     ```
                 type: string
             required:
-              - someEnum
-              - someString
+            - someEnum
+            - someString
             title: ExamplePayloadDto
             type: object
           foo:
@@ -856,7 +934,7 @@ components:
             maxLength: 100
             type: string
         required:
-          - example
+        - example
         title: AnotherPayloadDto
         type: object
     io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto:
@@ -868,18 +946,18 @@ components:
           type: string
           description: Some enum field
           enum:
-            - FOO1
-            - FOO2
-            - FOO3
+          - FOO1
+          - FOO2
+          - FOO3
           examples:
-            - FOO2
+          - FOO2
         someLong:
           type: integer
           description: Some long field
           format: int64
           minimum: 0
           examples:
-            - 5
+          - 5
         someString:
           type: string
           description: |
@@ -896,17 +974,17 @@ components:
               }
               ```
           examples:
-            - some string value
+          - some string value
       description: |
         Example payload model demonstrating markdown text styling:
         **bold**, *cursive* and <u>underlined</u>
       examples:
-        - someEnum: FOO2
-          someLong: 5
-          someString: some string value
+      - someEnum: FOO2
+        someLong: 5
+        someString: some string value
       required:
-        - someEnum
-        - someString
+      - someEnum
+      - someString
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: |
@@ -916,9 +994,9 @@ components:
           someEnum:
             description: Some enum field
             enum:
-              - FOO1
-              - FOO2
-              - FOO3
+            - FOO1
+            - FOO2
+            - FOO3
             title: ExampleEnum
             type: string
           someLong:
@@ -942,8 +1020,8 @@ components:
                 ```
             type: string
         required:
-          - someEnum
-          - someString
+        - someEnum
+        - someString
         title: ExamplePayloadDto
         type: object
     io.github.springwolf.examples.kafka.dtos.NestedPayloadDto:
@@ -962,16 +1040,16 @@ components:
             type: string
             description: Some string field
             examples:
-              - some string value
+            - some string value
           uniqueItems: true
       description: Payload model with nested complex types
       examples:
-        - examplePayloads:
-            - someEnum: FOO2
-              someLong: 5
-              someString: some string value
-          someStrings:
-            - some string value
+      - examplePayloads:
+        - someEnum: FOO2
+          someLong: 5
+          someString: some string value
+        someStrings:
+        - some string value
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: Payload model with nested complex types
@@ -985,9 +1063,9 @@ components:
                 someEnum:
                   description: Some enum field
                   enum:
-                    - FOO1
-                    - FOO2
-                    - FOO3
+                  - FOO1
+                  - FOO2
+                  - FOO3
                   title: ExampleEnum
                   type: string
                 someLong:
@@ -1011,8 +1089,8 @@ components:
                       ```
                   type: string
               required:
-                - someEnum
-                - someString
+              - someEnum
+              - someString
               title: ExamplePayloadDto
               type: object
             title: List
@@ -1033,25 +1111,25 @@ components:
         enumField:
           title: ComplexEnum
           type:
-            - string
-            - "null"
+          - string
+          - "null"
           description: Follows OpenAPI 3.1 spec
           enum:
-            - COMPLEX1
-            - COMPLEX2
-            - null
+          - COMPLEX1
+          - COMPLEX2
+          - null
         notRequiredField:
           type: string
           description: "This field can be skipped, but value cannot be null"
         requiredAndNullableField:
           type:
-            - string
-            - "null"
+          - string
+          - "null"
           description: "This field can be skipped, or value can be null or present"
         requiredButNullableField:
           type:
-            - string
-            - "null"
+          - string
+          - "null"
           description: "This field must be present, but value can be null"
         requiredField:
           type: string
@@ -1059,15 +1137,15 @@ components:
       description: "Demonstrate required and nullable. Note, @Schema is only descriptive\
         \ without nullability check"
       examples:
-        - enumField: COMPLEX1
-          notRequiredField: string
-          requiredAndNullableField: string
-          requiredButNullableField: string
-          requiredField: string
+      - enumField: COMPLEX1
+        notRequiredField: string
+        requiredAndNullableField: string
+        requiredButNullableField: string
+        requiredField: string
       required:
-        - enumField
-        - requiredButNullableField
-        - requiredField
+      - enumField
+      - requiredButNullableField
+      - requiredField
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: "Demonstrate required and nullable. Note, @Schema is only descriptive\
@@ -1076,33 +1154,33 @@ components:
           enumField:
             description: Follows OpenAPI 3.1 spec
             enum:
-              - COMPLEX1
-              - COMPLEX2
-              - null
+            - COMPLEX1
+            - COMPLEX2
+            - null
             title: ComplexEnum
             type:
-              - string
-              - "null"
+            - string
+            - "null"
           notRequiredField:
             description: "This field can be skipped, but value cannot be null"
             type: string
           requiredAndNullableField:
             description: "This field can be skipped, or value can be null or present"
             type:
-              - string
-              - "null"
+            - string
+            - "null"
           requiredButNullableField:
             description: "This field must be present, but value can be null"
             type:
-              - string
-              - "null"
+            - string
+            - "null"
           requiredField:
             description: "This field must be present, and value cannot be null"
             type: string
         required:
-          - enumField
-          - requiredButNullableField
-          - requiredField
+        - enumField
+        - requiredButNullableField
+        - requiredField
         title: RequiredAndNullablePayloadDto
         type: object
     io.github.springwolf.examples.kafka.dtos.XmlPayloadDto:
@@ -1115,25 +1193,25 @@ components:
           title: ExampleEnum
           type: string
           enum:
-            - FOO1
-            - FOO2
-            - FOO3
+          - FOO1
+          - FOO2
+          - FOO3
         someLong:
           type: integer
           format: int64
         someString:
           type: string
       examples:
-        - <io.github.springwolf.examples.kafka.dtos.XmlPayloadDto someAttribute="string"><someEnum>FOO1</someEnum><someLong>0</someLong><someString>string</someString></io.github.springwolf.examples.kafka.dtos.XmlPayloadDto>
+      - <io.github.springwolf.examples.kafka.dtos.XmlPayloadDto someAttribute="string"><someEnum>FOO1</someEnum><someLong>0</someLong><someString>string</someString></io.github.springwolf.examples.kafka.dtos.XmlPayloadDto>
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           someAttribute: {}
           someEnum:
             enum:
-              - FOO1
-              - FOO2
-              - FOO3
+            - FOO1
+            - FOO2
+            - FOO3
             title: ExampleEnum
             type: string
           someLong:
@@ -1151,27 +1229,27 @@ components:
           title: ExampleEnum
           type: string
           enum:
-            - FOO1
-            - FOO2
-            - FOO3
+          - FOO1
+          - FOO2
+          - FOO3
         someLong:
           type: integer
           format: int64
         someString:
           type: string
       examples:
-        - |
-          someEnum: FOO1
-          someLong: 0
-          someString: string
+      - |
+        someEnum: FOO1
+        someLong: 0
+        someString: string
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
           someEnum:
             enum:
-              - FOO1
-              - FOO2
-              - FOO3
+            - FOO1
+            - FOO2
+            - FOO3
             title: ExampleEnum
             type: string
           someLong:
@@ -1192,8 +1270,8 @@ components:
           type: integer
           format: int32
       examples:
-        - hp: 0
-          torque: 0
+      - hp: 0
+        torque: 0
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
@@ -1220,41 +1298,45 @@ components:
       description: Demonstrates the use of discriminator for polymorphic deserialization
         (not publishable)
       examples:
-        - batteryCapacity: 0
-          chargeTime: 0
-          enginePower:
-            hp: 0
-            torque: 0
-          powerSource: string
-          topSpeed: 0
-          vehicleType: string
+      - batteryCapacity: 0
+        chargeTime: 0
+        enginePower:
+          hp: 0
+          torque: 0
+        powerSource: string
+        topSpeed: 0
+        vehicleType: string
       oneOf:
-        - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
-        - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         description: Demonstrates the use of discriminator for polymorphic deserialization
           (not publishable)
         oneOf:
-          - allOf:
-              - {}
-              - properties:
-                  batteryCapacity: {}
-                  chargeTime:
-                    format: int32
-                    type: integer
-                type: object
-            description: Electric vehicle implementation of VehicleBase
-            title: VehicleElectricPayloadDto
+        - allOf:
+          - {}
+          - properties:
+              batteryCapacity: {}
+              chargeTime:
+                format: int32
+                type: integer
             type: object
-          - allOf:
-              - {}
-              - properties:
-                  fuelCapacity: {}
-                type: object
-            description: Gasoline vehicle implementation of VehicleBase
-            title: VehicleGasolinePayloadDto
+          description: Electric vehicle implementation of VehicleBase
+          title: VehicleElectricPayloadDto
+          type: object
+        - allOf:
+          - {}
+          - properties:
+              fuelCapacity: {}
             type: object
+          description: Gasoline vehicle implementation of VehicleBase
+          title: VehicleGasolinePayloadDto
+          type: object
+        - {}
+        - {}
         properties:
           enginePower:
             properties:
@@ -1273,58 +1355,60 @@ components:
       type: object
       description: Electric vehicle implementation of VehicleBase
       examples:
-        - batteryCapacity: 0
-          chargeTime: 0
-          enginePower:
-            hp: 0
-            torque: 0
-          powerSource: string
-          topSpeed: 0
-          vehicleType: string
+      - batteryCapacity: 0
+        chargeTime: 0
+        enginePower:
+          hp: 0
+          torque: 0
+        powerSource: string
+        topSpeed: 0
+        vehicleType: string
       allOf:
-        - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
-        - type: object
-          properties:
-            batteryCapacity:
-              type: integer
-              format: int32
-            chargeTime:
-              type: integer
-              format: int32
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
+      - type: object
+        properties:
+          batteryCapacity:
+            type: integer
+            format: int32
+          chargeTime:
+            type: integer
+            format: int32
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         allOf:
-          - description: Demonstrates the use of discriminator for polymorphic deserialization
-              (not publishable)
-            oneOf:
-              - {}
-              - allOf:
-                  - {}
-                  - properties:
-                      fuelCapacity:
-                        format: int32
-                        type: integer
-                    type: object
-                description: Gasoline vehicle implementation of VehicleBase
-                title: VehicleGasolinePayloadDto
-                type: object
-            properties:
-              enginePower:
-                properties:
-                  hp: {}
-                  torque: {}
-                title: EnginePower
-                type: object
-              powerSource:
-                type: string
-              topSpeed: {}
-              vehicleType: {}
-            title: VehicleBase
+        - description: Demonstrates the use of discriminator for polymorphic deserialization
+            (not publishable)
+          oneOf:
+          - {}
+          - allOf:
+            - {}
+            - properties:
+                fuelCapacity:
+                  format: int32
+                  type: integer
+              type: object
+            description: Gasoline vehicle implementation of VehicleBase
+            title: VehicleGasolinePayloadDto
             type: object
-          - properties:
-              batteryCapacity: {}
-              chargeTime: {}
-            type: object
+          - {}
+          - {}
+          properties:
+            enginePower:
+              properties:
+                hp: {}
+                torque: {}
+              title: EnginePower
+              type: object
+            powerSource:
+              type: string
+            topSpeed: {}
+            vehicleType: {}
+          title: VehicleBase
+          type: object
+        - properties:
+            batteryCapacity: {}
+            chargeTime: {}
+          type: object
         description: Electric vehicle implementation of VehicleBase
         title: VehicleElectricPayloadDto
         type: object
@@ -1333,54 +1417,56 @@ components:
       type: object
       description: Gasoline vehicle implementation of VehicleBase
       examples:
-        - enginePower:
-            hp: 0
-            torque: 0
-          fuelCapacity: 0
-          powerSource: string
-          topSpeed: 0
-          vehicleType: string
+      - enginePower:
+          hp: 0
+          torque: 0
+        fuelCapacity: 0
+        powerSource: string
+        topSpeed: 0
+        vehicleType: string
       allOf:
-        - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
-        - type: object
-          properties:
-            fuelCapacity:
-              type: integer
-              format: int32
+      - $ref: "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
+      - type: object
+        properties:
+          fuelCapacity:
+            type: integer
+            format: int32
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         allOf:
-          - description: Demonstrates the use of discriminator for polymorphic deserialization
-              (not publishable)
-            oneOf:
-              - allOf:
-                  - {}
-                  - properties:
-                      batteryCapacity: {}
-                      chargeTime:
-                        format: int32
-                        type: integer
-                    type: object
-                description: Electric vehicle implementation of VehicleBase
-                title: VehicleElectricPayloadDto
-                type: object
-              - {}
-            properties:
-              enginePower:
-                properties:
-                  hp: {}
-                  torque: {}
-                title: EnginePower
-                type: object
-              powerSource:
-                type: string
-              topSpeed: {}
-              vehicleType: {}
-            title: VehicleBase
+        - description: Demonstrates the use of discriminator for polymorphic deserialization
+            (not publishable)
+          oneOf:
+          - allOf:
+            - {}
+            - properties:
+                batteryCapacity: {}
+                chargeTime:
+                  format: int32
+                  type: integer
+              type: object
+            description: Electric vehicle implementation of VehicleBase
+            title: VehicleElectricPayloadDto
             type: object
-          - properties:
-              fuelCapacity: {}
-            type: object
+          - {}
+          - {}
+          - {}
+          properties:
+            enginePower:
+              properties:
+                hp: {}
+                torque: {}
+              title: EnginePower
+              type: object
+            powerSource:
+              type: string
+            topSpeed: {}
+            vehicleType: {}
+          title: VehicleBase
+          type: object
+        - properties:
+            fuelCapacity: {}
+          type: object
         description: Gasoline vehicle implementation of VehicleBase
         title: VehicleGasolinePayloadDto
         type: object
@@ -1388,7 +1474,7 @@ components:
       type: integer
       format: int32
       examples:
-        - 0
+      - 0
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         format: int32
@@ -1396,7 +1482,7 @@ components:
     java.lang.String:
       type: string
       examples:
-        - '"string"'
+      - '"string"'
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         type: string
@@ -1407,14 +1493,14 @@ components:
           type: number
           exclusiveMinimum: 0.01
           examples:
-            - 99.99
+          - 99.99
         currency:
           type: string
           examples:
-            - USD
+          - USD
       examples:
-        - amount: 99.99
-          currency: USD
+      - amount: 99.99
+        currency: USD
       x-json-schema:
         $schema: https://json-schema.org/draft-07/schema#
         properties:
@@ -1491,7 +1577,7 @@ components:
           bindingVersion: 0.5.0
     io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto:
       headers:
-        $ref: "#/components/schemas/SpringKafkaDefaultHeaders-ExamplePayloadDto-546532105"
+        $ref: "#/components/schemas/SpringKafkaDefaultHeaders-ExamplePayloadDto-529263695"
       payload:
         schemaFormat: application/vnd.aai.asyncapi+json;version=3.1.0
         schema:
@@ -1516,7 +1602,7 @@ components:
             type: string
             description: Kafka Producer Message Key
             examples:
-              - example-key
+            - example-key
           bindingVersion: 0.5.0
     io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto:
       headers:
@@ -1579,7 +1665,7 @@ components:
           type: integer
           format: int32
           examples:
-            - 0
+          - 0
       name: java.lang.Integer
       title: integer
       bindings:
@@ -1593,7 +1679,7 @@ components:
         schema:
           type: string
           examples:
-            - '"string"'
+          - '"string"'
       name: java.lang.String
       title: string
       bindings:
@@ -1614,7 +1700,7 @@ components:
             type: string
             description: Kafka Consumer Message Key
             examples:
-              - example-key
+            - example-key
           bindingVersion: 0.5.0
 operations:
   another-topic_receive_receiveAnotherPayloadBatched:
@@ -1626,10 +1712,10 @@ operations:
         groupId:
           type: string
           enum:
-            - example-group-id
+          - example-group-id
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/another-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
+    - $ref: "#/channels/another-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
   another-topic_send_sendMessage:
     action: send
     channel:
@@ -1640,7 +1726,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/another-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
+    - $ref: "#/channels/another-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
   avro-topic_receive_receiveExampleAvroPayload:
     action: receive
     channel:
@@ -1652,7 +1738,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/avro-topic/messages/io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto"
+    - $ref: "#/channels/avro-topic/messages/io.github.springwolf.examples.kafka.dto.avro.AnotherPayloadAvroDto"
   example-topic_receive_receiveExamplePayload:
     action: receive
     channel:
@@ -1661,7 +1747,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/example-topic/messages/io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto"
+    - $ref: "#/channels/example-topic/messages/io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto"
   integer-topic_receive_receiveIntegerPayload:
     action: receive
     channel:
@@ -1670,7 +1756,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/integer-topic/messages/java.lang.Integer"
+    - $ref: "#/channels/integer-topic/messages/java.lang.Integer"
   multi-payload-topic_receive_ExampleClassLevelKafkaListener:
     action: receive
     channel:
@@ -1679,9 +1765,9 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/multi-payload-topic/messages/io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto"
-      - $ref: "#/channels/multi-payload-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
-      - $ref: "#/channels/multi-payload-topic/messages/javax.money.MonetaryAmount"
+    - $ref: "#/channels/multi-payload-topic/messages/io.github.springwolf.examples.kafka.dtos.ExamplePayloadDto"
+    - $ref: "#/channels/multi-payload-topic/messages/io.github.springwolf.examples.kafka.dtos.AnotherPayloadDto"
+    - $ref: "#/channels/multi-payload-topic/messages/javax.money.MonetaryAmount"
   multi-payload-topic_receive_receiveMonetaryAmount:
     action: receive
     channel:
@@ -1694,14 +1780,14 @@ operations:
         groupId:
           type: string
           enum:
-            - foo-groupId
+          - foo-groupId
         clientId:
           type: string
           enum:
-            - foo-clientId
+          - foo-clientId
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/multi-payload-topic/messages/javax.money.MonetaryAmount"
+    - $ref: "#/channels/multi-payload-topic/messages/javax.money.MonetaryAmount"
   no-payload-used-topic_receive_receiveExamplePayload:
     action: receive
     channel:
@@ -1710,7 +1796,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/no-payload-used-topic/messages/PayloadNotUsed"
+    - $ref: "#/channels/no-payload-used-topic/messages/PayloadNotUsed"
   nullable-topic_receive_receiveNullablePayload:
     action: receive
     channel:
@@ -1719,7 +1805,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/nullable-topic/messages/io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto"
+    - $ref: "#/channels/nullable-topic/messages/io.github.springwolf.examples.kafka.dtos.RequiredAndNullablePayloadDto"
   protobuf-topic_receive_receiveExampleProtobufPayload:
     action: receive
     channel:
@@ -1728,7 +1814,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/protobuf-topic/messages/io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message"
+    - $ref: "#/channels/protobuf-topic/messages/io.github.springwolf.examples.kafka.dto.proto.ExamplePayloadProtobufDto.Message"
   string-topic_receive_receiveStringPayload:
     action: receive
     channel:
@@ -1740,8 +1826,8 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/string-topic/messages/io.github.springwolf.examples.kafka.consumers.StringConsumer.StringEnvelope"
-      - $ref: "#/channels/string-topic/messages/java.lang.String"
+    - $ref: "#/channels/string-topic/messages/io.github.springwolf.examples.kafka.consumers.StringConsumer.StringEnvelope"
+    - $ref: "#/channels/string-topic/messages/java.lang.String"
   topic-defined-via-asyncPublisher-annotation_send_sendMessage:
     action: send
     channel:
@@ -1753,10 +1839,10 @@ operations:
         clientId:
           type: string
           enum:
-            - foo-clientId
+          - foo-clientId
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/topic-defined-via-asyncPublisher-annotation/messages/io.github.springwolf.examples.kafka.dtos.NestedPayloadDto"
+    - $ref: "#/channels/topic-defined-via-asyncPublisher-annotation/messages/io.github.springwolf.examples.kafka.dtos.NestedPayloadDto"
   vehicle-topic_receive_receiveExamplePayload:
     action: receive
     channel:
@@ -1765,7 +1851,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/vehicle-topic/messages/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
+    - $ref: "#/channels/vehicle-topic/messages/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
   xml-topic_receive_receiveExamplePayload:
     action: receive
     channel:
@@ -1776,7 +1862,7 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/xml-topic/messages/io.github.springwolf.examples.kafka.dtos.XmlPayloadDto"
+    - $ref: "#/channels/xml-topic/messages/io.github.springwolf.examples.kafka.dtos.XmlPayloadDto"
   yaml-topic_receive_receiveExamplePayload:
     action: receive
     channel:
@@ -1787,4 +1873,4 @@ operations:
       kafka:
         bindingVersion: 0.5.0
     messages:
-      - $ref: "#/channels/yaml-topic/messages/io.github.springwolf.examples.kafka.dtos.YamlPayloadDto"
+    - $ref: "#/channels/yaml-topic/messages/io.github.springwolf.examples.kafka.dtos.YamlPayloadDto"
