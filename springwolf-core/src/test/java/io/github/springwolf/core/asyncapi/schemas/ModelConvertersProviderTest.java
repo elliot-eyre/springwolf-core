@@ -44,10 +44,10 @@ class ModelConvertersProviderTest {
 
         // when
         ModelConverters modelConverters = provider.getModelConverters();
-        ModelResolver resolver = (ModelResolver) modelConverters.getConverters().get(0);
+        ModelResolver resolver = (ModelResolver) modelConverters.getConverters().get(1);
 
         // then
-        assertThat(modelConverters.getConverters()).hasSize(1);
+        assertThat(modelConverters.getConverters()).hasSize(2);
         assertThat(resolver.isOpenapi31()).isEqualTo(expectedOpenapi31);
     }
 
@@ -62,9 +62,9 @@ class ModelConvertersProviderTest {
         List<ModelConverter> converters = provider.getModelConverters().getConverters();
 
         // then
-        assertThat(converters).hasSize(2);
+        assertThat(converters).hasSize(3);
         assertThat(converters.get(0)).isSameAs(externalModelConverter);
-        assertThat(converters.get(1)).isInstanceOf(ModelResolver.class);
+        assertThat(converters.get(2)).isInstanceOf(ModelResolver.class);
     }
 
     private static SpringwolfConfigProperties configProperties(boolean useFqn, PayloadSchemaFormat format) {

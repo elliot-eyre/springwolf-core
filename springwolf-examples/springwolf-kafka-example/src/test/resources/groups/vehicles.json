@@ -48,12 +48,10 @@
             "title": "__TypeId__",
             "type": "string",
             "description": "Spring Type Id Header",
-            "enum": [
-              "io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
-            ],
             "examples": [
               "io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
-            ]
+            ],
+            "const": "io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
           }
         },
         "examples": [
@@ -65,10 +63,8 @@
           "$schema": "https://json-schema.org/draft-07/schema#",
           "properties": {
             "__TypeId__": {
+              "const": "io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase",
               "description": "Spring Type Id Header",
-              "enum": [
-                "io.github.springwolf.examples.kafka.dtos.discriminator.VehicleBase"
-              ],
               "title": "__TypeId__",
               "type": "string"
             }
@@ -148,6 +144,12 @@
           },
           {
             "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleElectricPayloadDto"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.examples.kafka.dtos.discriminator.VehicleGasolinePayloadDto"
           }
         ],
         "x-json-schema": {
@@ -185,7 +187,9 @@
               "description": "Gasoline vehicle implementation of VehicleBase",
               "title": "VehicleGasolinePayloadDto",
               "type": "object"
-            }
+            },
+            { },
+            { }
           ],
           "properties": {
             "enginePower": {
@@ -264,7 +268,9 @@
                   "description": "Gasoline vehicle implementation of VehicleBase",
                   "title": "VehicleGasolinePayloadDto",
                   "type": "object"
-                }
+                },
+                { },
+                { }
               ],
               "properties": {
                 "enginePower": {
@@ -351,6 +357,8 @@
                   "title": "VehicleElectricPayloadDto",
                   "type": "object"
                 },
+                { },
+                { },
                 { }
               ],
               "properties": {

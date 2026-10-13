@@ -2,7 +2,6 @@
 package io.github.springwolf.asyncapi.v3.model.schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.github.springwolf.asyncapi.v3.model.ExtendableObject;
 import io.github.springwolf.asyncapi.v3.model.ExternalDocumentation;
 import io.github.springwolf.asyncapi.v3.model.components.ComponentSchema;
@@ -12,6 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import tools.jackson.databind.annotation.JsonSerialize;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -98,6 +98,9 @@ public class SchemaObject extends ExtendableObject implements Schema {
     @JsonProperty(value = "maxLength")
     private Integer maxLength;
 
+    /**
+     * For a single entry, use {@link #constValue}
+     */
     @JsonProperty("enum")
     private List<String> enumValues;
 
@@ -125,6 +128,9 @@ public class SchemaObject extends ExtendableObject implements Schema {
     @JsonProperty(value = "anyOf")
     private List<ComponentSchema> anyOf;
 
+    /**
+     * For multiple entries, use {@link #enumValues}
+     */
     @JsonProperty(value = "const")
     private Object constValue;
 

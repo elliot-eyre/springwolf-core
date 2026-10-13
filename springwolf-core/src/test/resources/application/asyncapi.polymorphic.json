@@ -112,6 +112,12 @@
           },
           {
             "$ref": "#/components/schemas/io.github.springwolf.core.integrationtests.application.polymorphic.PolymorphicPayloadApplication.Cat"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.core.integrationtests.application.polymorphic.PolymorphicPayloadApplication.Dog"
+          },
+          {
+            "$ref": "#/components/schemas/io.github.springwolf.core.integrationtests.application.polymorphic.PolymorphicPayloadApplication.Cat"
           }
         ]
       }

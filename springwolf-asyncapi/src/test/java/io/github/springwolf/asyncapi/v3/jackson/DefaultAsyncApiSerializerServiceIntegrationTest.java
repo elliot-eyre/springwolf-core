@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 package io.github.springwolf.asyncapi.v3.jackson;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import io.github.springwolf.asyncapi.v3.ClasspathUtil;
 import io.github.springwolf.asyncapi.v3.bindings.OperationBinding;
 import io.github.springwolf.asyncapi.v3.bindings.kafka.KafkaMessageBinding;
@@ -32,6 +31,7 @@ import io.swagger.v3.oas.models.media.StringSchema;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import tools.jackson.databind.JsonNode;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -88,7 +88,7 @@ class DefaultAsyncApiSerializerServiceIntegrationTest {
         Map<String, Message> messages = Map.of(message.getMessageId(), message);
 
         SchemaObject groupId = new SchemaObject();
-        groupId.setEnumValues(List.of("myGroupId"));
+        groupId.setConstValue("myGroupId");
         groupId.setType(Set.of(SchemaType.STRING.getValue()));
 
         OperationBinding operationBinding =
@@ -102,11 +102,9 @@ class DefaultAsyncApiSerializerServiceIntegrationTest {
                 .build();
 
         ChannelObject newUserChannel = ChannelObject.builder()
-                // FIXME: Can we autogenerate the address somehow?
                 .address("new-user")
                 .description("This channel is used to exchange messages about users signing up")
-                .servers(List.of(
-                        ServerReference.builder().ref("#/servers/production").build()))
+                .servers(List.of(ServerReference.fromServer("production")))
                 .messages(Map.of(message.getMessageId(), MessageReference.toComponentMessage(message)))
                 .build();
 
